@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="active">
-		<%= # session[:code] %>
+		<%= session[:code] %>
 		<p>Tries left : <%= session[:tries] %></p>
 		<form method='post' action='/'>
 			<div class="circle inactive" id="1"></div>
@@ -36,6 +36,6 @@
 			<div class="feedback"><%= session[:feedback_history][i] %></div>
 		</div>
 		<% end %>
-</div>
+	</div>
 </body>
 </html>
