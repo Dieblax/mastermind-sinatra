@@ -15,6 +15,21 @@ $(document).ready(function() {
 		$(this).append("<input type='hidden' name='digit4' value=" + digits[3] + " >");
 	});
 
+	$('.help a').click(function() {
+		$('.help_mask').css({'display' : 'block'});
+		$('.help_window').css({'display' : 'block'});
+	});
+
+	$('.play').click(function() {
+		$('.help_mask').css({'display' : 'none'});
+		$('.help_window').css({'display' : 'none'});
+	});
+
+	$('.help_mask').on('mousedown', function() {
+		$('.help_mask').css({'display' : 'none'});
+		$('.help_window').css({'display' : 'none'});
+	});
+
 	// When a div is clicked, it changes color and its value goes up 1 
 	// When the form is submitted it sends the value of each div
 });

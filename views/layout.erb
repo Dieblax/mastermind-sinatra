@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Play Mastermind!</title>
+	<link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/4.1.1/normalize.css">
+	<link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div class="help_mask"></div>
+<div class="help_window">
+	<p>Welcome to Mastermind, to win you will have to guess a computer generated code in less than 12 turns. To do so you will be given feedback after each guess : </p>
+	<div class="feedback">
+		<table>
+			<tr><td><div class="B"></div></td><td><p>A full circle means that you have got one color right and in the right position.</p></td></tr>
+			<tr><td><div class="W"></div></td><td><p>A hollow circle means that you have got one color right.</p></td></tr>
+			<tr><td><div class="X"></div></td><td><p>A small circle means that one color is wrong.</p></td></tr>
+		</table>
+	</div>
+	<p>The code will be composed of four colors from six available (duplicates are allowed). The colors are : </p>
+	<div class="tutorial_circles">
+	<% (0..5).each do |i| %>
+		<div class="circle past number<%= i %>"></div>
+	<% end %>
+	</div>
+	<button class="play">Play</button>
+</div>
+<nav>
+	<p class="logo">MASTERMIND</p>
+	<div class="help"><a href="#">?</a></div>
+</nav>
+<%= yield %>
+</body>
+</html>

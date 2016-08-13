@@ -1,27 +1,226 @@
+* {
+	-moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: 'Oxygen', sans-serif;
+  clear: right;
+}
+
+nav div, nav p {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+nav p {
+	color: #B4B4B4;
+}
+
+a {
+	text-decoration: none;
+	color: #B4B4B4;
+}
+
+nav {
+	height: 100px;
+}
+
+body {
+	height: 100vh;
+	background: rgba(255,255,255,1);
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 10%, rgba(242,242,242,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(10%, rgba(255,255,255,1)), color-stop(100%, rgba(242,242,242,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 10%, rgba(242,242,242,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 10%, rgba(242,242,242,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 10%, rgba(242,242,242,1) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 10%, rgba(242,242,242,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2', GradientType=0 );
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.logo {
+	float: left;
+	margin-left: 50px;
+	margin-top: 25px;
+}
+
+.help {
+	margin-top: 25px;
+	float: right;
+	margin-right: 50px;
+	border: 2px solid #B4B4B4;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	text-align: center;
+	padding-bottom: 2px;
+	color: #B4B4B4;
+}
+
+nav .help:hover {
+	background-color: #B4B4B4;
+}
+
+nav a {
+	padding: 0 30px 0 30px;
+	margin-left: -20px;
+}
+
+nav .help a:hover {
+	color: white;
+}
+
+h1 {
+	position: relative;
+	width: 600px;
+	left: 50%;
+	margin-left: -300px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 36px;
+}
+
+.subheader {
+	text-align: center;
+}
+
+.guess_form {
+	position: absolute;
+	bottom: 60%;
+	height: 100px;
+	margin-bottom: -50px;
+	width: 100%;
+	text-align: center;
+}
+
+input[type='submit'] {
+	border-radius: 20px;
+	width: 100px;
+	position: absolute;
+	display: block;
+	-webkit-appearance: none;
+	border: none;
+	background-color: #3daff3;
+	color: white;
+	left: 50%;
+	margin-left: -50px;
+	bottom: -70px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+input[type='submit']:hover {
+	border: 1px solid #3daff3;
+	background-color: #FFF;
+	color: #3daff3;
+	padding: 4px 0 4px 0;
+	cursor: pointer;
+}
+
+input[type='submit']:hover {
+	outline: none;
+}
+
+.circles {
+	font-size: 0;
+	width: 600px;
+	text-align: center;
+	display: inline-block;
+}
+
 .circle {
 	position: relative;
-	width: 50px;
-	height: 50px;
-	background-color: transparent;
-	margin-left: 10px;
+	width: 100px;
+	height: 100px;
+	margin-left: 25px;
+	margin-right: 25px;
 	display: inline-block;
 	border-radius: 50%
 }
 
-*:focus {
-	outline: none;
-}
 
 .inactive {
-	border: 2px solid black;
-	width: 46px;
-	height: 46px;
+	border: 2px solid #B4B4B4;
+	background-color: transparent;
+	width: 96px;
+	height: 96px;
 }
 
-.past {
-	width: 15px;
-	height: 15px;
+.inactive:hover {
+	border-color: #3daff3;
+	cursor: pointer;
+}
+
+.feedback.active {
+	position: absolute;
+	bottom: 40%;
+	width: 100vw;
+	text-align: center;
+}
+
+.feedback.active div {
+	display: inline-block;
 	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.feedback.active .B {
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	background-color: #B5B4B4;
+}
+
+.feedback.active .W {
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	background-color: transparent;
+	border: 2px solid #B5B4B4;
+}
+
+.feedback.active .X {
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+	background-color: #222;
+	margin-bottom: 5px;
+}
+
+.feedback div {
+	display: inline-block;
+	margin-left: 2.5px;
+	margin-right: 2.5px;
+}
+
+.feedback .B {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #B5B4B4;
+}
+
+.feedback .W {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: transparent;
+	border: 2px solid #B5B4B4;
+}
+
+.feedback .X {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: #222;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 2.5px;
 }
 
 .number0 {
@@ -48,48 +247,95 @@
 	background-color: #F66A96;
 }
 
-.feedback div {
+.history {
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	padding: 30px 0 30px 0;
+	width: 100vw;
+}
+
+.guess {
 	display: inline-block;
+	margin-right: 10px;
+	margin-left: 10px;
+	width: 15vw;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.past {
+	width: 15px;
+	height: 15px;
 	margin-left: 5px;
+	margin-right: 5px;
 }
 
-.feedback.active {
-	padding: 20px;
+.help_mask, .help_window {
+	position: absolute;
+	display: none;
 }
 
-.feedback.active .B {
-	width: 20px;
-	height: 20px;
-	background-color: black;
+.help_mask {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.9);
+	z-index: 25;
 }
 
-.feedback.active .W {
-	width: 20px;
-	height: 20px;
-	background-color: grey;
+.help_window {
+	width: 60vw;
+	padding: 50px;
+	background-color: white;
+	height: 60vh;
+	z-index: 26;
+	left: 50%;
+	margin-left: -30vw;
+	top: 50%;
+	margin-top: -30vh;
 }
 
-.feedback.active .X {
-	width: 10px;
-	height: 10px;
-	background-color: red;
+.feedback table p {
+	display: table-cell;
+	padding-left: 20px;
 }
 
 
-.feedback .B {
-	width: 10px;
-	height: 10px;
-	background-color: black;
+.tutorial_circles {
+	text-align: center;
 }
 
-.feedback .W {
-	width: 10px;
-	height: 10px;
-	background-color: grey;
+.tutorial_circles div {
+	width: 35px;
+	height: 35px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 20px;
 }
 
-.feedback .X {
-	width: 5px;
-	height: 5px;
-	background-color: green;
+.play {
+	position: relative;
+	left: 50%;
+	margin-left: -60px;
+	margin-top: 50px;
+	height: 40px;
+	width: 120px;
+	text-align: center;
+	-webkit-appearance: none;
+	border: none;
+	background-color: #3daff3;
+	color: white;
+}
+
+.play:hover {
+	border: 1px solid #3daff3;
+	background-color: #FFF;
+	color: #3daff3;
+	height: 40px;
+	width: 120px;
+}
+
+.play:focus {
+	background-color: rgba(0, 0, 0, 0.15);
+	outline: none;
 }

@@ -1,49 +1,76 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Play mastermind</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-	<div class="active">
-		<%= session[:code] %>
-		<p>Tries left : <%= session[:tries] %></p>
-		<form method='post' action='/'>
-			<div class="circle inactive" id="1"></div>
-			<div class="circle inactive" id="2"></div>
-			<div class="circle inactive" id="3"></div>
-			<div class="circle inactive" id="4"></div>
-			<input type="submit" name="submit">	
+
+<div class="active">
+	<p><%= session[:code] %></p>
+
+	<% if win %>
+		<h1>You cracked the code <strong><em>code</em></strong> in <%= 12 - session[:tries] %> turn(s)!</h1>
+		<form method='get' action='/newgame' class="guess_form">
+		<div class="circles">
+			<% session[:code].split("").each do |digit| %>
+			<div class="circle number<%= digit %>"></div>
+			<% end %>
+		</div>
+		<input type="submit" name="submit" class="submit_guess" value="Play Again">	
 		</form>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script type="text/javascript" src="/script.js"></script>
+	<% elsif lose %>
+		<h1>You lose...</h1>
+		<p class="subheader">The code was : </p>
+
+		<form method='get' action='/newgame' class="guess_form">
+		<div class="circles">
+			<% session[:code].split("").each do |digit| %>
+			<div class="circle number<%= digit %>"></div>
+			<% end %>
+		</div>
+		<input type="submit" name="submit" class="submit_guess" value="Play Again">	
+		</form>
+	<% else %>
+
+		<h1>Try to crack the <strong><em>code</em></strong></h1>
+		<p class="subheader">Tries left : <%= session[:tries] %></p>
+
+		<form method='post' action='/' class="guess_form">
+			<div class="circles">
+				<div class="circle inactive" id="1"></div>
+				<div class="circle inactive" id="2"></div>
+				<div class="circle inactive" id="3"></div>
+				<div class="circle inactive" id="4"></div>
+			</div>
+			<input type="submit" name="submit" class="submit_guess" value="Go">	
+		</form>
+	<% end %>
+		
+	<% unless feedback.nil? || feedback.empty? %>
+		<div class="feedback active">
+		<% feedback.split("").each do |letter| %>
+			<div class="<%= letter %>"></div>
+		<% end %>
+		</div>
+	<% end %>
+
+	<% unless error.nil? || error.empty? %>
+	<div class="feedback active"
+		<p style="color:red"> <%= error %> </p>
+	</div>
+	<% end %>
+
 	
-		<% unless feedback.nil? || feedback.empty? %>
-			<div class="feedback active">
-			<% feedback.split("").each do |letter| %>
+</div>
+
+<div class="history">
+	<% session[:guess_history].reverse.each_with_index do |guess, i| %>
+	<div class="guess">
+		<% guess.split("").each do |digit| %>
+			<div class="number<%= digit %> past circle"></div>
+		<% end %>
+		<div class="feedback">
+			<% session[:feedback_history].reverse[i].split("").each do |letter| %>
 				<div class="<%= letter %>"></div>
 			<% end %>
-			</div>
-		<% end %>
-
-		<% unless error.nil? || error.empty? %>
-			<p style="color:red"> <%= error %> </p>
-		<% end %>
-	</div>
-
-	<div class="history">
-		<% session[:guess_history].reverse.each_with_index do |guess, i| %>
-		<div class="guess">
-			<% guess.split("").each do |digit| %>
-				<div class="number<%= digit %> past circle"></div>
-			<% end %>
-			<div class="feedback">
-				<% session[:feedback_history].reverse[i].split("").each do |letter| %>
-					<div class="<%= letter %>"></div>
-				<% end %>
-			</div>
 		</div>
-		<% end %>
 	</div>
-</body>
-</html>
+	<% end %>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/script.js"></script>
