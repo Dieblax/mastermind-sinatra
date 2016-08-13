@@ -6,6 +6,7 @@ $(document).ready(function() {
 		var value = digits[parseInt($(this).attr('id')) - 1]; 
 		// $(this).text(value);
 		$(this).css({'background-color' : getColor(value)});
+		$(this).removeClass('inactive')
 	});
 	$('form').submit(function(e) {
 		$(this).append("<input type='hidden' name='digit1' value=" + digits[0] + " >");

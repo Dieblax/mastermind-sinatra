@@ -72,7 +72,7 @@ get '/' do
 		session.clear
 		erb :you_win
 	else
-		erb :index, :locals => {:error => nil, :feedback => session[:feedback_history][-1], :tries_left => session[:tries], :code => session[:code]}
+		erb :index, :locals => {:error => nil, :feedback => session[:feedback_history][-1], :session => session}
 	end
 	#erb :index
 end
@@ -82,7 +82,7 @@ post '/' do
 	guess = params["digit1"] + params["digit2"] + params["digit3"] + params["digit4"]
 	if guess.include?("-1")
 		error = "Your guess isn't complete!"
-		erb :index, :locals => {:error => error, :feedback => nil, :tries_left => session[:tries], :code => session[:code]} 
+		erb :index, :locals => {:error => error, :feedback => nil, :session => session} 
 	else
 		feedback = evaluate(guess, session[:code]).join("")
 		session[:guess_history].push(guess)

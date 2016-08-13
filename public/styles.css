@@ -2,7 +2,45 @@
 	position: relative;
 	width: 50px;
 	height: 50px;
-	background-color: red;
+	background-color: transparent;
 	margin-left: 10px;
 	display: inline-block;
+	border-radius: 50%
 }
+
+.inactive {
+	border: 2px solid black;
+	width: 46px;
+	height: 46px;
+}
+
+.past {
+	width: 15px;
+	height: 15px;
+	margin-left: 5px;
+}
+
+.number0 {
+	background-color: #3A3485;
+}
+
+.number1 {
+	background-color: #017FCA;
+}
+
+.number2 {
+	background-color: #76B716;
+}
+
+.number3 {
+	background-color: #FFB700;
+}
+
+.number4 {
+	background-color: #EE6E01;
+}
+
+.number5 {
+	background-color: #F66A96;
+}
+
