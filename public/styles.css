@@ -339,3 +339,7 @@ input[type='submit']:hover {
 	background-color: rgba(0, 0, 0, 0.15);
 	outline: none;
 }
+
+#code {
+	display: none;
+}

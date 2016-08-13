@@ -1,9 +1,9 @@
 
 <div class="active">
-	<p><%= session[:code] %></p>
+	<p id="code"><%= session[:code] %></p>
 
 	<% if win %>
-		<h1>You cracked the code <strong><em>code</em></strong> in <%= 12 - session[:tries] %> turn(s)!</h1>
+		<h1>You cracked the <strong><em>code</em></strong> in <%= 12 - session[:tries] %> turn(s)!</h1>
 		<form method='get' action='/newgame' class="guess_form">
 		<div class="circles">
 			<% session[:code].split("").each do |digit| %>
