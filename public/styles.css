@@ -8,6 +8,10 @@
 	border-radius: 50%
 }
 
+*:focus {
+	outline: none;
+}
+
 .inactive {
 	border: 2px solid black;
 	width: 46px;
@@ -44,3 +48,48 @@
 	background-color: #F66A96;
 }
 
+.feedback div {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.feedback.active {
+	padding: 20px;
+}
+
+.feedback.active .B {
+	width: 20px;
+	height: 20px;
+	background-color: black;
+}
+
+.feedback.active .W {
+	width: 20px;
+	height: 20px;
+	background-color: grey;
+}
+
+.feedback.active .X {
+	width: 10px;
+	height: 10px;
+	background-color: red;
+}
+
+
+.feedback .B {
+	width: 10px;
+	height: 10px;
+	background-color: black;
+}
+
+.feedback .W {
+	width: 10px;
+	height: 10px;
+	background-color: grey;
+}
+
+.feedback .X {
+	width: 5px;
+	height: 5px;
+	background-color: green;
+}

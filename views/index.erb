@@ -19,7 +19,11 @@
 		<script type="text/javascript" src="/script.js"></script>
 	
 		<% unless feedback.nil? || feedback.empty? %>
-			<p><%= feedback %></p>
+			<div class="feedback active">
+			<% feedback.split("").each do |letter| %>
+				<div class="<%= letter %>"></div>
+			<% end %>
+			</div>
 		<% end %>
 
 		<% unless error.nil? || error.empty? %>
@@ -28,12 +32,16 @@
 	</div>
 
 	<div class="history">
-		<% session[:guess_history].each_with_index do |guess, i| %>
+		<% session[:guess_history].reverse.each_with_index do |guess, i| %>
 		<div class="guess">
 			<% guess.split("").each do |digit| %>
 				<div class="number<%= digit %> past circle"></div>
 			<% end %>
-			<div class="feedback"><%= session[:feedback_history][i] %></div>
+			<div class="feedback">
+				<% session[:feedback_history].reverse[i].split("").each do |letter| %>
+					<div class="<%= letter %>"></div>
+				<% end %>
+			</div>
 		</div>
 		<% end %>
 	</div>
