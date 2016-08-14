@@ -74,6 +74,7 @@ nav .help a:hover {
 }
 
 h1 {
+	margin-top: -50px;
 	position: relative;
 	width: 600px;
 	left: 50%;
@@ -156,7 +157,7 @@ input[type='submit']:hover {
 
 .feedback.active {
 	position: absolute;
-	bottom: 40%;
+	bottom: 35%;
 	width: 100vw;
 	text-align: center;
 }
@@ -259,7 +260,7 @@ input[type='submit']:hover {
 	display: inline-block;
 	margin-right: 10px;
 	margin-left: 10px;
-	width: 15vw;
+	width: 13vw;
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
